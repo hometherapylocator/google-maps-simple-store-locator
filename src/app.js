@@ -125,7 +125,7 @@ function initMap() {
 
   // Create the map.
   const map = new google.maps.Map(document.getElementsByClassName('map')[0], {
-    zoom: 7,
+    zoom: 8,
     center: {lat: 39.768557, lng: -86.158014},
     styles: mapStyle
   });
@@ -137,7 +137,7 @@ function initMap() {
   map.data.setStyle(feature => {
     return {
       icon: {
-        url: `img/icon_${feature.getProperty('category')}.png`,
+        url: `img/icon_asctw.png`,
         scaledSize: new google.maps.Size(64, 64)
       }
     };
