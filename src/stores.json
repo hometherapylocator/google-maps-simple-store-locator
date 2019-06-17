@@ -5,221 +5,561 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.145365,
-          51.506182
+          39.937626,
+          -86.053894
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "patisserie",
-        "hours": "10am - 6pm",
-        "description": "Modern twists on classic pastries. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Patisserie Mayfair",
-        "phone": "+44 20 1234 5678"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Allisonville Meadows",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.579623,
-          51.452251
+          39.852527,
+          -86.128767
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "patisserie",
-        "hours": "10am - 6pm",
-        "description": "Come and try our award-winning cakes and pastries. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Patisserie Bristol",
-        "phone": "+44 117 121 2121"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "American Village",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.273459,
-          52.638072
+          39.723850,
+          -86.106053
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "patisserie",
-        "hours": "10am - 6pm",
-        "description": "Whatever the occasion, whether it's a birthday or a wedding, Josie's Patisserie has the perfect treat for you. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Patisserie Norwich",
-        "phone": "+44 1603 123456"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Beech Grove Meadows",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.882509,
-          50.848831
+          40.026171,
+          -86.904131
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "patisserie",
-        "hours": "10am - 6pm",
-        "description": "A gourmet patisserie that will delight your senses. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Patisserie Wimborne",
-        "phone": "+44 1202 343434"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Ben Hur Health and Rehab",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.985933,
-          53.408899
+          39.715049,
+          -86.140597
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "patisserie",
-        "hours": "10am - 6pm",
-        "description": "Spoil yourself or someone special with our classic pastries. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Patisserie Liverpool",
-        "phone": "+44 151 444 4444"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Bethany Village",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.689423,
-          52.632469
+          39.836766,
+          -86.399601
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "patisserie",
-        "hours": "10am - 6pm",
-        "description": "Come and feast your eyes and tastebuds on our delicious pastries and cakes. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Patisserie Tamworth",
-        "phone": "+44 5555 55555"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Brownsburg Meadows",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.155305,
-          51.479756
+          39.789516,
+          -86.072371
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "patisserie",
-        "hours": "10am - 6pm",
-        "description": "Josie's Patisserie is family-owned, and our delectable pastries, cakes, and great coffee are renowed. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Patisserie Cardiff",
-        "phone": "+44 29 6666 6666"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Community Nursing and Rehab",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.725019,
-          52.668891
+          39.774023,
+          -86.382354
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Countryside Meadows",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.973523,
+          -87.394998
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Cypress Grove Rehab",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.763940,
+          -86.498722
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Danville Regional Rehab",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.808960,
+          -86.301343
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Eagle Valley Meadows",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.730114,
+          -86.121215
         ]
       },
       "type": "Feature",
       "properties": {
         "category": "cafe",
-        "hours": "8am - 9:30pm",
-        "description": "Oakham's favorite spot for fresh coffee and delicious cakes. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Cafe Oakham",
-        "phone": "+44 7777 777777"
+        "hours": "",
+        "description": "",
+        "name": "Fairway Village",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.477653,
-          53.735405
+          39.693272,
+          -86.146949
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "cafe",
-        "hours": "8am - 9:30pm",
-        "description": "Enjoy freshly brewed coffe, and home baked cakes in our homely cafe. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Cafe Blackburn",
-        "phone": "+44 8888 88888"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Forest Creek Village",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.211363,
-          51.108966
+          39.481877,
+          -86.082376
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "cafe",
-        "hours": "8am - 9:30pm",
-        "description": "A delicious array of pastries with many flavours, and fresh coffee in an snug cafe. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Cafe Crawley",
-        "phone": "+44 1010 101010"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Franklin Meadows",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.123559,
-          50.832679
+          38.338686,
+          -87.341845
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "cafe",
-        "hours": "8am - 9:30pm",
-        "description": "Grab a freshly brewed coffee, a decadent cake and relax in our idyllic cafe. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Cafe Brighton",
-        "phone": "+44 1313 131313"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Good Samaritan Home and Rehabilitative Center",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.319575,
-          52.517827
+          39.634356,
+          -86.160029
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "cafe",
-        "hours": "8am - 9:30pm",
-        "description": "Come in and unwind at this idyllic cafe with fresh coffee and home made cakes. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Cafe Newtown",
-        "phone": "+44 1414 141414"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Greenwood Meadows",
+        "phone": ""
       }
     },
     {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.158167,
-          52.071634
+          39.904479,
+          -86.192228
         ]
       },
       "type": "Feature",
       "properties": {
-        "category": "cafe",
-        "hours": "8am - 9:30pm",
-        "description": "Fresh coffee and delicious cakes in an snug cafe. We're part of a larger chain of patisseries and cafes.",
-        "name": "Josie's Cafe Ipswich",
-        "phone": "+44 1717 17171"
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Harcourt Terrace Nursing & Rehab",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.793921,
+          -86.034508
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Harrison Terrace",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.054034,
+          -86.126946
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Maple Park Village",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.623343,
+          -86.355609
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Meadow Lakes",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.760009,
+          -86.767950
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Monticello Healthcare",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.793853,
+          -86.161902
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "North Capitol Nursing and Rehab",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.009558,
+          -87.572123
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "North Park",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.979182,
+          -87.648044
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Park Terrace Village",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.045304,
+          -86.021273
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Riverwalk Village",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.658722,
+          -86.081148
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Rosegate Village",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.786005,
+          -86.071921
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Rosewalk Village of Indy",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.424360,
+          -86.874872
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Rosewalk Village of Lafayette",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.913057,
+          -86.198297
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Spring Mill Meadows",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.416050,
+          -86.942055
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "The Timbers of Jasper",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.735345, 
+          -86.305519  
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Washington Healthcare Center",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.177102,
+          -86.993318
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Willowdale Village",
+        "phone": ""
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.944380,
+          -86.276942 
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Zionsville Meadows",
+        "phone": ""
       }
     }
   ]
