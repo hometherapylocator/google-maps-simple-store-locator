@@ -129,7 +129,7 @@ function sanitizeHTML(strings) {
 function initMap() {
 
   // Create the map.
-  const map = new google.maps.Map(document.getElementsByClassName('map')[0], {
+  map = new google.maps.Map(document.getElementsByClassName('map')[0], {
     zoom: 8,
     center: {lat: 39.768557, lng: -86.158014},
     styles: mapStyle
@@ -143,7 +143,7 @@ function initMap() {
     return {
       icon: {
         url: `img/icon_asctw.png`,
-        scaledSize: new google.maps.Size(64, 64)
+        scaledSize: new google.maps.Size(32, 32)
       }
     };
   });
@@ -172,11 +172,9 @@ function initMap() {
     const phone = event.feature.getProperty('phone');
     const position = event.feature.getGeometry().get();
     const content = sanitizeHTML`
-      <img style="float:left; width:200px; margin-top:30px" src="img/logo_${category}.png">
-      <div style="margin-left:220px; margin-bottom:20px;">
-        <h2>${name}</h2><p>${description}</p>
-        <p><b>Open:</b> ${hours}<br/><b>Phone:</b> ${phone}</p>
-        <p><img src="https://maps.googleapis.com/maps/api/streetview?size=350x120&location=${position.lat()},${position.lng()}&key=${apiKey}"></p>
+      <img style="float:left; width:32px; margin-top:0px" src="img/icon_asctw.png">
+      <div margin-top:30px;">
+        <h2>${name}</h2>
       </div>
     `;
 
@@ -192,7 +190,7 @@ function initMap() {
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({address: address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-    searchLocationsNear(results[0].geometry.location);
+    searchLocationsNear(results[0].geometry.location, results[0].formatted_address);
     } else {
       alert(address + ' not found');
     }
@@ -213,43 +211,27 @@ function clearLocations() {
   locationSelect.appendChild(option);
 }
 
-function searchLocationsNear(center) {
+function searchLocationsNear(center, address) {
   clearLocations();
 
   var radius = 500;
-  var searchUrl = 'index.html?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
-  downloadUrl(searchUrl, function(data) {
-    var xml = parseXml(data);
-    var markerNodes = xml.documentElement.getElementsByTagName("marker");
-    var bounds = new google.maps.LatLngBounds();
-    for (var i = 0; i < markerNodes.length; i++) {
-      var id = markerNodes[i].getAttribute("id");
-      var name = markerNodes[i].getAttribute("name");
-      var address = markerNodes[i].getAttribute("address");
-      var distance = parseFloat(markerNodes[i].getAttribute("distance"));
-      var latlng = new google.maps.LatLng(
-          parseFloat(markerNodes[i].getAttribute("lat")),
-          parseFloat(markerNodes[i].getAttribute("lng")));
 
-      createOption(name, distance, i);
-      createMarker(latlng, name, address);
-      bounds.extend(latlng);
-    }
-    map.fitBounds(bounds);
-    locationSelect.style.visibility = "visible";
-    locationSelect.onchange = function() {
-      var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
-      google.maps.event.trigger(markers[markerNum], 'click');
-    };
-  });
+  //createOption(name, distance, i);
+  createMarker(center, name, address);
+  locationSelect.style.visibility = "visible";
+  locationSelect.onchange = function() {
+    var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
+    google.maps.event.trigger(markers[markerNum], 'click');
+  };
 }
 
 function createMarker(latlng, name, address) {
   var html = "<b>" + name + "</b> <br/>" + address;
   var marker = new google.maps.Marker({
     map: map,
-    position: latlng
-  });
+    position: latlng,
+    icon: "img/icon_pin.png"
+});
   google.maps.event.addListener(marker, 'click', function() {
     infoWindow.setContent(html);
     infoWindow.open(map, marker);
@@ -288,4 +270,8 @@ function parseXml(str) {
   } else if (window.DOMParser) {
     return (new DOMParser).parseFromString(str, 'text/xml');
   }
+}
+
+function doNothing() {
+  
 }
