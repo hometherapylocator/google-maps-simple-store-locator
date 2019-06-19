@@ -157,7 +157,7 @@ function initMap() {
     destinations.push({
       lat:store.geometry.coordinates[1], 
       lng:store.geometry.coordinates[0],
-      name:store.properties.name
+      Name:store.properties.name
     });
   });
 
@@ -213,10 +213,6 @@ function clearLocations() {
   markers.length = 0;
 
   locationSelect.innerHTML = "";
-  var option = document.createElement("option");
-  option.value = "none";
-  option.innerHTML = "See all results:";
-  locationSelect.appendChild(option);
 }
 
 function searchLocationsNear(center, address) {
@@ -258,6 +254,7 @@ function distancesCallback(response, status, index) {
     destinations[i + index].DriveTimeDisplay = element.duration.text;
     destinations[i + index].DriveDistanceMeters = element.distance.value;
     destinations[i + index].DriveDistanceDisplay = element.distance.text;
+    destinations[i + index].Index = i + index;
   }
 
   if (i + index >= destinations.length) {
@@ -266,7 +263,11 @@ function distancesCallback(response, status, index) {
 }
 
 function createOptions() {
-  var foo = 1;
+  clearLocations();
+  destinations.sort((a, b) => (a.DriveTimeSeconds > b.DriveTimeSeconds) ? 1 : -1);
+  destinations.forEach((store) => {
+    createOption(store.Name + " " + store.DriveTimeDisplay, store.Index);
+  });
 }
 
 function createMarker(latlng, name, address) {
@@ -283,10 +284,10 @@ function createMarker(latlng, name, address) {
   markers.push(marker);
 }
 
-function createOption(name, distance, num) {
+function createOption(html, num) {
   var option = document.createElement("option");
   option.value = num;
-  option.innerHTML = name;
+  option.innerHTML = html;
   locationSelect.appendChild(option);
 }
 
