@@ -111,6 +111,7 @@ var map;
 var markers = [];
 var infoWindow;
 var locationSelect;
+var destinations;
 
 // Escapes HTML characters in a template literal string, to prevent XSS.
 // See https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet#RULE_.231_-_HTML_Escape_Before_Inserting_Untrusted_Data_into_HTML_Element_Content
@@ -137,8 +138,7 @@ function initMap() {
 
   // Load the stores GeoJSON onto the map.
   map.data.loadGeoJson('stores.json');
-
-  // Define the custom marker icons, using the store's "category".
+    // Define the custom marker icons, using the store's "category".
   map.data.setStyle(feature => {
     return {
       icon: {
@@ -148,6 +148,19 @@ function initMap() {
     };
   });
   
+  var request = new XMLHttpRequest();
+  request.open("GET", "stores.json", false);
+  request.send(null)
+  var storeData = JSON.parse(request.responseText);
+  destinations = [];
+  storeData.features.forEach((store) => {
+    destinations.push({
+      lat:store.geometry.coordinates[1], 
+      lng:store.geometry.coordinates[0],
+      name:store.properties.name
+    });
+  });
+
   searchButton = document.getElementById("searchButton").onclick = searchLocations;
 
   locationSelect = document.getElementById("locationSelect");
@@ -164,12 +177,7 @@ function initMap() {
 
   // Show the information for a store when its marker is clicked.
   map.data.addListener('click', event => {
-
-    const category = event.feature.getProperty('category');
     const name = event.feature.getProperty('name');
-    const description = event.feature.getProperty('description');
-    const hours = event.feature.getProperty('hours');
-    const phone = event.feature.getProperty('phone');
     const position = event.feature.getGeometry().get();
     const content = sanitizeHTML`
       <img style="float:left; width:32px; margin-top:0px" src="img/icon_asctw.png">
@@ -213,8 +221,18 @@ function clearLocations() {
 
 function searchLocationsNear(center, address) {
   clearLocations();
-
-  var radius = 500;
+  
+  
+  var service = new google.maps.DistanceMatrixService();
+  var i;
+  for (i=0; i < destinations.length; i+=25) {
+    service.getDistanceMatrix({
+      origins: [center],
+      destinations: destinations.slice(i, i+25),
+      travelMode: 'DRIVING',
+      unitSystem: google.maps.UnitSystem.Imperial,
+    }, callbackClosure(i, distancesCallback));
+  }
 
   //createOption(name, distance, i);
   createMarker(center, name, address);
@@ -223,6 +241,32 @@ function searchLocationsNear(center, address) {
     var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
     google.maps.event.trigger(markers[markerNum], 'click');
   };
+}
+
+function callbackClosure(i, callback) {
+  return function(response, status) {
+    return callback(response, status, i);
+  }
+}
+
+function distancesCallback(response, status, index) {
+  var i;
+  for (i=0; i < response.destinationAddresses.length; i++) {
+    destinations[i + index].Address = response.destinationAddresses[i];
+    var element = response.rows[0].elements[i];
+    destinations[i + index].DriveTimeSeconds = element.duration.value;
+    destinations[i + index].DriveTimeDisplay = element.duration.text;
+    destinations[i + index].DriveDistanceMeters = element.distance.value;
+    destinations[i + index].DriveDistanceDisplay = element.distance.text;
+  }
+
+  if (i + index >= destinations.length) {
+    createOptions();
+  }
+}
+
+function createOptions() {
+  var foo = 1;
 }
 
 function createMarker(latlng, name, address) {
