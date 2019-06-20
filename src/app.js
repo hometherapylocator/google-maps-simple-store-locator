@@ -112,6 +112,7 @@ var markers = [];
 var infoWindow;
 var locationSelect;
 var destinations;
+var error = "";
 
 // Escapes HTML characters in a template literal string, to prevent XSS.
 // See https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet#RULE_.231_-_HTML_Escape_Before_Inserting_Untrusted_Data_into_HTML_Element_Content
@@ -148,19 +149,14 @@ function initMap() {
     };
   });
   
-  var request = new XMLHttpRequest();
-  request.open("GET", "stores.json", false);
-  request.send(null)
-  var storeData = JSON.parse(request.responseText);
   destinations = [];
-  storeData.features.forEach((store) => {
-    destinations.push({
-      lat:store.geometry.coordinates[1], 
-      lng:store.geometry.coordinates[0],
-      Name:store.properties.name
-    });
-  });
 
+  //var request = new XMLHttpRequest();
+  //request.open("GET", "stores.json", false);
+  //request.send(null)
+  var storeData;// = JSON.parse(request.responseText);
+
+  
   searchButton = document.getElementById("searchButton").onclick = searchLocations;
 
   locationSelect = document.getElementById("locationSelect");
@@ -193,7 +189,7 @@ function initMap() {
 
 }
 
- function searchLocations() {
+function searchLocations() {
   var address = document.getElementById("addressInput").value;
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({address: address}, function(results, status) {
@@ -217,26 +213,36 @@ function clearLocations() {
 
 function searchLocationsNear(center, address) {
   clearLocations();
-  
-  
-  var service = new google.maps.DistanceMatrixService();
-  var i;
-  for (i=0; i < destinations.length; i+=25) {
-    service.getDistanceMatrix({
-      origins: [center],
-      destinations: destinations.slice(i, i+25),
-      travelMode: 'DRIVING',
-      unitSystem: google.maps.UnitSystem.Imperial,
-    }, callbackClosure(i, distancesCallback));
-  }
+  destinations = [];
+  error = "";
+  $.getJSON("stores.json", (storeData) => {
+    storeData.features.forEach((store) => {
+      destinations.push({
+        lat:store.geometry.coordinates[1], 
+        lng:store.geometry.coordinates[0],
+        Name:store.properties.name
+      });
+    });
 
-  //createOption(name, distance, i);
-  createMarker(center, name, address);
-  locationSelect.style.visibility = "visible";
-  locationSelect.onchange = function() {
-    var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
-    google.maps.event.trigger(markers[markerNum], 'click');
-  };
+    var service = new google.maps.DistanceMatrixService();
+    var i;
+    for (i=0; i < destinations.length; i+=25) {
+      service.getDistanceMatrix({
+        origins: [center],
+        destinations: destinations.slice(i, i+25),
+        travelMode: 'DRIVING',
+        unitSystem: google.maps.UnitSystem.Imperial,
+      }, callbackClosure(i, distancesCallback));
+    }
+
+    //createOption(name, distance, i);
+    createMarker(center, name, address);
+    locationSelect.style.visibility = "visible";
+    locationSelect.onchange = function() {
+      var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
+      google.maps.event.trigger(markers[markerNum], 'click');
+    };
+  });
 }
 
 function callbackClosure(i, callback) {
@@ -246,6 +252,19 @@ function callbackClosure(i, callback) {
 }
 
 function distancesCallback(response, status, index) {
+  if(status != "OK" || !response.destinationAddresses[0] || !response.rows[0].elements[0].duration) {
+    console.log("error retrieving data.")
+    if (!error) {
+      error = "Error retrieving data.  Please try again."
+      locationSelect.innerHTML = "";
+      createOption(error);
+    }
+  }
+
+  if (error) {
+    return;
+  }
+
   var i;
   for (i=0; i < response.destinationAddresses.length; i++) {
     destinations[i + index].Address = response.destinationAddresses[i];
@@ -263,9 +282,15 @@ function distancesCallback(response, status, index) {
 }
 
 function createOptions() {
-  clearLocations();
+  locationSelect.innerHTML = "";
   destinations.sort((a, b) => (a.DriveTimeSeconds > b.DriveTimeSeconds) ? 1 : -1);
   destinations.forEach((store) => {
+    if (!store.DriveTimeDisplay) {
+      error = "Error retrieving data.  Please try again."
+      locationSelect.innerHTML = "";
+      createOption(error);
+      throw error;
+    }
     createOption(store.Name + " " + store.DriveTimeDisplay, store.Index);
   });
 }
@@ -277,7 +302,8 @@ function createMarker(latlng, name, address) {
     position: latlng,
     icon: "img/icon_pin.png"
 });
-  google.maps.event.addListener(marker, 'click', function() {
+
+ google.maps.event.addListener(marker, 'click', function() {
     infoWindow.setContent(html);
     infoWindow.open(map, marker);
   });
@@ -320,3 +346,15 @@ function parseXml(str) {
 function doNothing() {
   
 }
+
+$(document).ready(function ()
+{
+    $("#addressInput").keydown(function (e)
+    {
+        if (e.keyCode == 13) // 27=esc
+        {
+            searchLocations();
+            $(this).select();
+        }
+    });
+});
