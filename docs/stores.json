@@ -5,6 +5,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -87.573263,
+          37.985321 
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Columbia Healthcare Center",
+        "phone": ""
+      }
+     },
+     {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -86.053894,
           39.937626
         ]
