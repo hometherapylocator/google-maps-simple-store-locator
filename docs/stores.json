@@ -1,7 +1,24 @@
 {
   "type": "FeatureCollection",
   "features": [
-    {
+     {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.912753,
+          37.929436
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Mount Vernon Nursing & Rehabilitation",
+        "phone": ""
+      }
+     },
+     {
       "geometry": {
         "type": "Point",
         "coordinates": [
