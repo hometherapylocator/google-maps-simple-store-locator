@@ -5,6 +5,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+         -87.298956,
+          40.297674
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "",
+        "hours": "",
+        "description": "",
+        "name": "Williamsport Nursing and Rehabilitation",
+        "phone": ""
+      }
+     },
+     {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -87.912753,
           37.929436
         ]
