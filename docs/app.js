@@ -276,7 +276,11 @@ function distancesCallback(response, status, index) {
     destinations[i + index].Index = i + index;
   }
 
-  if (i + index >= destinations.length) {
+  var completedDestionations = destinations.filter(function(destination){
+    return !!destination.DriveTimeDisplay;
+  });
+
+  if (completedDestionations.length == destinations.length) {
     createOptions();
   }
 }
